@@ -24,7 +24,7 @@ pip install -r requirements.txt
 uvicorn src.app:app --host 0.0.0.0 --port 80 --reload
 ```
 
-and then go to [`http://localhost/docs`](http://localhost/docs) to see the Swagger API
+4. Go to [`http://localhost/docs`](http://localhost/docs) to see the Swagger API
 
 
 ## Running inside Docker container
@@ -43,7 +43,7 @@ docker build -t project_image -f Dockerfile .
 docker run -d -p 8123:8123 --name project_container project_image
 ```
 
-Go to [`http://localhost:8123/docs`](http://localhost:8123/docs) to see the Swagger API
+4. Go to [`http://localhost:8123/docs`](http://localhost:8123/docs) to see the Swagger API
 
 
 # Preguntas conceptuales
