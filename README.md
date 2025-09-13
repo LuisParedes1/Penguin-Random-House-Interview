@@ -1,10 +1,49 @@
 # Penguin Random House Grupo Editorial - Entrevista Tecnica
 
+## Running locally
+
+1. Install python [virtual environment](https://virtualenv.pypa.io/en/latest/installation.html), build and activate a new virtual environment.
 
 ```
-docker 
+# Build the virtual environment
+python3 -m venv venv
+
+# Activate the virtual environment:
+source venv/bin/activate
 ```
 
+2. Install libraries and frameworks
+
+```
+pip install -r requirements.txt
+```
+
+3. Run the server locally using
+
+```
+uvicorn src.app:app --host 0.0.0.0 --port 80 --reload
+```
+
+and then go to [`http://localhost/docs`](http://localhost/docs) to see the Swagger API
+
+
+## Running inside Docker container
+
+1. [Install Docker](https://docs.docker.com/engine/install/) in your local machine and make sure it's running.
+2. Build Docker image
+
+```
+docker build -t project_image -f Dockerfile .
+```
+
+3. Run the image within a container
+    
+
+```
+docker run -d -p 8123:8123 --name project_container project_image
+```
+
+Go to [`http://localhost:8123/docs`](http://localhost:8123/docs) to see the Swagger API
 
 
 # Preguntas conceptuales
