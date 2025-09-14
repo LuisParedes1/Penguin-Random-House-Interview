@@ -48,9 +48,13 @@ def data_analysis(average: Optional[bool] = None,
         raise HTTPException(status_code=400, detail="At least one country must be included.")
     
 
-    result: dict[str, float] = {"status": 200}
+    result: dict[str, float] = {}
 
     # if average:
     #     result['average'] = get_metric
-    
+
+    # TODO: Make sure status code is appropiate
+    if not result:
+        raise HTTPException(status_code=500, detail="Filters returned no data")
+
     return JSONResponse(content=result, status_code=200)
