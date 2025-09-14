@@ -61,6 +61,23 @@ curl localhost:8123/test
 {"status":200}
 ```
 
+# Running Tests
+
+* To run all tests locally, run the following command
+
+```
+pytest test/
+```
+
+* To run a single test, append the filename along with the test name
+
+```
+pytest test/test_[filename]::test_[function_name]
+```
+
+
+
+
 # Preguntas conceptuales
 
 ## Experiencia previa en nuestro stack tecnológico (Snowflake, Airflow, DBT, AWS, Databricks, CI/CD en gitlab) o similares. Breve resumen de algún proyecto en el que hayas aplicado estas herramientas.
