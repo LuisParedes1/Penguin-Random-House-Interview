@@ -40,7 +40,7 @@ docker build -t project_image -f Dockerfile .
 3. Run the image within a container
 
 ```
-docker run -d -p 8123:8123 --name project_container project_image
+docker run -d -p 8123:8123 -v $(pwd):/code --name project_container project_image
 ```
 
 4. Go to [`http://localhost:8123/docs`](http://localhost:8123/docs) to see the Swagger API
