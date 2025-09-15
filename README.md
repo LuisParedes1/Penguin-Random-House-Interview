@@ -58,7 +58,7 @@ curl "localhost:8123/data_analysis?mean=true&include_ar=true"
 
 3. You should get the following output
 ```
-{"status":200}
+{"AR":{"mean":656.5600000000001}}
 ```
 
 # Running Tests
