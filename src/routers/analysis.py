@@ -57,7 +57,7 @@ def data_analysis(mean: bool = False,
 
     if not metrics:
         logger.error("No metric specified")
-        raise HTTPException(status_code=400, detail="Specify at least one metric.")
+        raise HTTPException(status_code=400, detail="Specify at least one metric")
 
 
     country_map: dict[str, bool] = {
@@ -69,7 +69,7 @@ def data_analysis(mean: bool = False,
 
     if not country_codes:
         logger.error("No country code specified")
-        raise HTTPException(status_code=400, detail="At least one country must be included.")
+        raise HTTPException(status_code=400, detail="At least one country must be included")
 
 
     filtered_data: DataFrame = apply_filters(DATASET, country_codes, year)
