@@ -21,29 +21,61 @@ pip install -r requirements.txt
 3. Run the server locally using
 
 ```
-uvicorn src.app:app --host 0.0.0.0 --port 80 --reload
+uvicorn src.app:app --host 0.0.0.0 --port 8123 --reload
 ```
 
-4. Go to [`http://localhost/docs`](http://localhost/docs) to see the Swagger API
+4. Go to [`http://localhost:8123/docs`](http://localhost:8123/docs) to see the Swagger API
 
 
 ## Running inside Docker container
 
 1. [Install Docker](https://docs.docker.com/engine/install/) in your local machine and make sure it's running.
-2. Build Docker image
+
+2. Build the Docker image
 
 ```
 docker build -t project_image -f Dockerfile .
 ```
 
 3. Run the image within a container
-    
 
 ```
-docker run -d -p 8123:8123 --name project_container project_image
+docker run -d -p 8123:8123 -v $(pwd):/code --name project_container project_image
 ```
 
 4. Go to [`http://localhost:8123/docs`](http://localhost:8123/docs) to see the Swagger API
+
+# Testing the server
+
+Once the server is running, either locally or in a Docker container, we can perform a quick request to make sure it's working as expected.
+
+1. Open the command line interface
+
+2. Run the following command
+```
+curl localhost:8123/test
+```
+
+3. You should get the following output
+```
+{"status":200}
+```
+
+# Running Tests
+
+* To run all tests locally, run the following command
+
+```
+pytest test/
+```
+
+* To run a single test, append the filename along with the test name
+
+```
+pytest test/test_[filename]::test_[function_name]
+```
+
+
 
 
 # Preguntas conceptuales
