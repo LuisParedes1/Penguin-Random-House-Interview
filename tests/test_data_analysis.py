@@ -22,3 +22,6 @@ def test_answer():
 
 def test_assert():
     assert True
+
+def test_breaks():
+    assert not True
