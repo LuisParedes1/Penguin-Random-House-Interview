@@ -32,12 +32,12 @@ def apply_filters(data: DataFrame,
 
 
 @router.get("/data_analysis", summary="Return data analysis based on specified metric and filters")
-def data_analysis(average: Optional[bool] = None,
-                  median: Optional[bool] = None,
-                  max_value: Optional[bool] = None,
-                  include_uy: Optional[bool] = None,
-                  include_ar: Optional[bool] = None,
-                  include_cl: Optional[bool] = None,
+def data_analysis(mean: bool = False,
+                  median: bool = False,
+                  max_value: bool = False,
+                  include_uy: bool = False,
+                  include_ar: bool = False,
+                  include_cl: bool = False,
                   year: Optional[int] = None,
                   global_results: bool = False):
     """
@@ -49,7 +49,7 @@ def data_analysis(average: Optional[bool] = None,
 
 
     metrics_map: dict[str, bool] = {
-        "mean": average,
+        "mean": mean,
         "median": median,
         "max": max_value
     }
@@ -75,15 +75,15 @@ def data_analysis(average: Optional[bool] = None,
     filtered_data: DataFrame = apply_filters(DATASET, country_codes, year)
 
     if filtered_data.empty:
-        logger.error("Empty filters")
-        # TODO: Make sure status code is appropiate
-        raise HTTPException(status_code=500, detail="Filters returned no data")
+        logger.error(f"Filters {{year: {year}, country_codes: {country_codes}}} returned no data")
+        raise HTTPException(status_code=404, detail="Filters returned no data")
 
 
     results: dict[str, float] = {}
 
     if global_results:
         results["global_results"] = filtered_data['value'].agg(metrics).to_dict()
+        results["on_countries"] = country_codes
     else:
         results = filtered_data.groupby('country')['value'].agg(metrics).to_dict('index')  
 
