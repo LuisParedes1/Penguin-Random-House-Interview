@@ -6,7 +6,7 @@ La implementacion de la API se realizo con el framework de [FastAPI](https://fas
 
 # Ejecutar el proyecto
 
-El proyecto se puede [ejecutar localmente](#ejecutar-localmente) y usando [Docker](#ejecutar-en-un-contenedor-de-docker). 
+El proyecto se puede [ejecutar localmente](#ejecutar-localmente) o usando [Docker](#ejecutar-en-un-contenedor-de-docker).
 
 Tambien se encuentra disponible una [demo](#proceso-cicd) desplegada para probar el endpoint facilmente. 
 
