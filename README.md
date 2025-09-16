@@ -190,12 +190,25 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde u
 
 ## ¿Qué estrategias usarías para optimizar costos en clústeres?
 
-Segun las [recomendaciones de Databricks](https://www.databricks.com/blog/best-practices-cost-management-databricks) para optimizar costos en clústeres:
+Segun las [recomendaciones de Databricks](https://www.databricks.com/blog/best-practices-cost-management-databricks), podemos optimizar costos en clústeres a travez de las [politicas de cluster](https://docs.databricks.com/aws/en/admin/clusters/policies).
 
-1. 
+Estas políticas permiten a los administradores establecer las configuraciones disponibles a la hora de crear un cluster nuevo, permitiendo controlar el maximo consumo total de Databricks Units (DBUs) que un cluster puede consumir.
 
-* Herramientas como Apache Spark se especializan en manejo de sistemas distribuidos. Para poder optimizar costos nos conviene distribuir la carga en multiples nodos dentro del cluster de manera que ninguno especifico este sobresaturado.
+Para optimizar costos en clústeres tenemos dos estrategias:
 
+1. Reducir el costo por unidad de Databricks Unit (DBU) consumidos por el cluster
+    * Usar el ultimo Databrick Runtime disponible.
+    * Cambiar el tipo de instance VM utilizada. 
+        * Usar spot instance si el workflow lo permite.
+        * Tener en cuenta que una VM muy debil puede aumentar el tiempo de procesamiento, lo cual termina agregando costo. Es importante seleccionar una instance VM apropiada.
+
+2. Reducir el numero de Databricks Units (DBUs) consumidos por el cluster
+    * Limitar la quota de DBUs consumidos por hora
+    * Cambiar el tipo de workload si es posible (`cluster_type`)
+    * Utilizar auto-scaling y auto-termination para activar y desactivar nodos elasticamente, y configurar un limite para el maximo y minimo numero de worker nodes.
+
+
+Para estimar el costo total podemos utilizar la [calculadora de DBU](https://www.databricks.com/product/pricing/product-pricing/instance-types) indicando la configuracion del cluster y el consumo de Databricks Units (DBUs)
 
 
 ## ¿Cómo implementarías seguridad (secret scopes, roles)?
