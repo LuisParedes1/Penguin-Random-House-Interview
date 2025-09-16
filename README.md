@@ -141,7 +141,7 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
 
 * **Tecnologia en la nube**: Cuento con mas de un año de experiencia laboral usando y desplegando servicios de AWS tales como AWS S3, AWS RDS, AWS API Gateway, AWS ECS, AWS Lambda Functions, entre otros, a travez de la consola y usando IaC (Terraform y AWS CloudFormation). Ademas cuento con el certificado [AWS Certified Developer – Associate](https://www.credly.com/badges/f16701bc-0361-4453-89eb-33d1e339332b/embedded) y actualmente me encuentro haciendo el curso de Google Cloud Platform a travez de [Talento Tech](https://drive.google.com/file/d/1qgxk5z2bgUZOsxDUBiCUeSJyEOmdukve/view) con el objetivo de certificarme pronto como Google [Associate Cloud Engineer](https://www.cloudskillsboost.google/public_profiles/2a36b716-c860-4391-b2d6-683ebc12dafe).
 
-* **Databricks**: Si bien no he trabajado directamente con Databricks, cuento con experiencia con distintas herramientas que provee. Por ejemplo
+* **Databricks**: Aunque no he trabajado directamente con Databricks, si tengo experiencia utilizando varias de las herramientas que ofrece. Por ejemplo:
     * Cuento con mas de un año de experiencia laboral creando y optimizando SQL queries para obtener analiticas.
     * En [trabajos practicos](https://github.com/LuisParedes1/TP2_orga/blob/master/TP2_2C2021.pdf) universitarios trabaje con un dump de Wikipedia en español utilizando distintas transformaciones y acciones de **Spark** para extraer insights. 
     * En la materia de Ciencia de datos donde soy colaborador, enseñamos:
