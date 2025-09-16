@@ -2,8 +2,6 @@
 
 El siguiente repositorio contiene el desarrollo de la [consigna](./Consigna_ML_Engineer_RS.pdf) para la Entrevista Tecnica para Penguin Random House Grupo Editorial. 
 
-
-
 ## Ejecutar localmente
 
 1. Instalar [entorno virtual](https://virtualenv.pypa.io/en/latest/installation.html) de python, buildear y activar un nuevo entorno virtual.
@@ -68,38 +66,54 @@ curl "localhost:8123/data_analysis?mean=true&include_ar=true"
 {"AR":{"mean":656.5600000000001}}
 ```
 
+Tambien podemos probar el servidor usando la Swagger API:
+
+1. Ir a [`http://localhost:8123/docs`](http://localhost:8123/docs)
+2. Desplegar el endpoint `/data_analysis`
+3. Parametrizar `mean=True` y `include_ar=True`
+4. Undir el boton `Execute`. Se deberia ver el siguiente response body
+
+```
+{
+  "AR": {
+    "mean": 656.5600000000001
+  }
+}
+```
+
 # Tests unitarios
 
-* Dado que el alcance del problema es muy pequeño y solo tenemos un unico endpoint, se consideraron las pruebas unitarias y las pruebas de integracion como las mismas. Es decir, hacemos los tests directamente sobre la API.
-    * En caso de que el proyecto crezca, es recomendable desacoplar estos tests.   
+Dado que el alcance del problema es muy pequeño y solo tenemos un unico endpoint, se consideraron las pruebas unitarias y las pruebas de integracion como las mismas. Es decir, hacemos los tests directamente sobre la API.
 
-* Se implementaron los siguientes caso de uso felices
+> En caso de que el proyecto crezca, es recomendable desacoplar estos tests.   
 
-1. Cuando el usuario solicita una o varias metricas en argentina, entonces el sistema devuelve las metricas para argentina.
+* Se implementaron los siguientes caso de uso felices:
 
-2. Cuando el usuario solicita una o varias metricas en argentina y filtrando para un año especifico, entonces el sistema devuelve las metricas para argentina en ese año.
+    1. Cuando el usuario solicita una o varias metricas en argentina, entonces el sistema devuelve las metricas para argentina.
 
-3. Cuando el usuario solicita una o varias metricas en uno o varios paises, entonces el sistema devuelve la informacion correcta para cada pais.
+    2. Cuando el usuario solicita una o varias metricas en argentina y filtrando para un año especifico, entonces el sistema devuelve las metricas para argentina en ese año.
 
-4. Cuando el usuario solicita una o varias metricas en uno o varios paises e indica que es un resultado global, entonces el sistema devuelve metricas globales.
+    3. Cuando el usuario solicita una o varias metricas en uno o varios paises, entonces el sistema devuelve la informacion correcta para cada pais.
+
+    4. Cuando el usuario solicita una o varias metricas en uno o varios paises e indica que es un resultado global, entonces el sistema devuelve metricas globales.
 
 * Se implementaron los siguientes casos de uso borde:
 
-1. Cuando el usuario no envia ninguna metrica a calcular, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos una metrica** a calcular
+    1. Cuando el usuario no envia ninguna metrica a calcular, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos una metrica** a calcular
 
-2. Cuando el usuario no especifica ningun pais sobre el cual calcular las metricas, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos un pais** sobre el cual operar
+    2. Cuando el usuario no especifica ningun pais sobre el cual calcular las metricas, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos un pais** sobre el cual operar
 
-3. Cuando los filtros devuelven un dataset vacio, entonces se espera que devuelva un error legible.
+    3. Cuando los filtros devuelven un dataset vacio, entonces se espera que devuelva un error legible.
 
 ## Correr los tests
 
-* Para correr todos los tests localmente, ejecuta el siguiente comando
+Para correr todos los tests localmente, ejecuta el siguiente comando:
 
 ```
 pytest test/
 ```
 
-* Para correr un test especifico, ejecuta el siguiente comando
+Para correr un test especifico, ejecuta el siguiente comando
 
 ```
 pytest test/test_[filename]::test_[function_name]
