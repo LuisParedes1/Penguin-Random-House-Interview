@@ -130,7 +130,24 @@ pytest test/test_[filename]::test_[function_name]
 
 ## Experiencia previa en nuestro stack tecnológico (Snowflake, Airflow, DBT, AWS, Databricks, CI/CD en gitlab) o similares. Breve resumen de algún proyecto en el que hayas aplicado estas herramientas.
 
-[TODO]
+
+* **Orquestación de workflows** -> No he trabajado directamente con Airflow, sin embargo cuento con experiencia practica orquestando workflows de manera serverless a travez de [AWS Step Functions] y programando tareas recurrentes mediante CRON jobs para infraestructura deployada en Railway usando [Railway Cron Jobs](https://docs.railway.com/reference/cron-jobs)
+
+* **Tecnologia en la nube** -> Cuento con mas de un año de experiencia laboral usando y desplegando servicios de AWS tales como AWS S3, AWS RDS, AWS API Gateway, AWS ECS, AWS Lambda Functions, entre otros, a travez de la consola y usando IaC a travez de Terraform y AWS CloudFormation. Ademas cuento con el certificado [AWS Certified Developer – Associate](https://www.credly.com/badges/f16701bc-0361-4453-89eb-33d1e339332b/embedded) y actualmente me encuentro haciendo el curso de Google Cloud Platform a travez de [Talento Tech](https://drive.google.com/file/d/1qgxk5z2bgUZOsxDUBiCUeSJyEOmdukve/view) con el objetivo de certificarme pronto como Google [Associate Cloud Engineer](https://cloud.google.com/learn/certification/cloud-engineer/).
+
+* **Databricks** -> Si bien no he trabajado directamente con Databricks, cuento con experiencia con las distintas herramientas que provee. Por ejemplo
+    * Cuento con mas de un año de experiencia laboral creando y optimizando SQL queries para obtener analiticas.
+    * En [trabajos practicos](https://github.com/LuisParedes1/TP2_orga/blob/master/TP2_2C2021.pdf) universitarios trabaje con un dump de Wikipedia en español utilizando distintas transformaciones y acciones de **Spark** para extraer insights. 
+    * En la materia de Ciencia de datos donde soy colaborador, enseñamos:
+        * Procesos de **Data engineering** tales como ingestion de datos, limpieza y transformacion de datos.
+        * Entrenamiento y evaluacion de modelos de **Machine Learning** utilizando diversas metricas (precision, recall, F-score, etc)
+
+
+* **Procesos CI/CD** -> Cuento con experiencia realizando procesos CI/CD a travez de Github Actions y diversas plataformas de despliegue como Railway y AWS. Este mismo proyecto cuenta con un [proceso CI/CD](#proceso-cicd) sencillo a modo demostrativo.
+
+* En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde utilizo el stack recien mencionado. Entre los mas destados estan:
+    * [Ahorraton](https://github.com/Ahorraton/.github): Full-stack web application que compara los precios de supermercados argentinos y recomienda la tienda más rentable según la lista de compras del usuario.
+    * [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Análisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
 
 ## ¿Cuál te parece la mejor estrategia para versionar y guardar datos y modelos en Databricks?
 
