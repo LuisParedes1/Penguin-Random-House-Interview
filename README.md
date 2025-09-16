@@ -1,6 +1,6 @@
-# Penguin Random House Grupo Editorial - Entrevista Tecnica
+# Preguntas de Entrevista Tecnica
 
-
+Entrevista Tecnica para Penguin Random House Grupo Editorial. [Consigna](./Consigna_ML_Engineer_RS.pdf)
 
 ## Ejecutar localmente
 
