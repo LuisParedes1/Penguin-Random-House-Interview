@@ -157,11 +157,11 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
 
 ### Portafolio
 
-En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde he utilizado diversas herramientas del stack recien mencionado. Entre los proyectos más destacados se encuentran:
+En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde he utilizado diversas herramientas del stack recien mencionado. Entre los proyectos mas destacados se encuentran:
 
-1. [Ahorraton](https://github.com/Ahorraton/.github): Full-stack web application que compara los precios de supermercados argentinos y recomienda la tienda más rentable según la lista de compras del usuario.
+1. [Ahorraton](https://github.com/Ahorraton/.github): Full-stack web application que compara los precios de supermercados argentinos y recomienda la tienda mas rentable según la lista de compras del usuario.
 
-    * Con el objetivo de controlar y minimizar los costos, el workflow es activado manualmente al cargar los datos de [SEPA](https://datos.produccion.gob.ar/dataset/sepa-precios), el cual reúne los precios de comercios minoristas fisicos (grandes establecimientos) de más de 70 mil productos en todo el país, en AWS S3 bucket.
+    * Con el objetivo de controlar y minimizar los costos, el workflow es activado manualmente al cargar los datos de [SEPA](https://datos.produccion.gob.ar/dataset/sepa-precios), el cual reúne los precios de comercios minoristas fisicos (grandes establecimientos) de mas de 70 mil productos en todo el país, en AWS S3 bucket.
     * A partir de la carga de este dataset se activa un evento el cual ejecuta la Lambda Function que envia una señal al API gateway para que el scraper comience el proceso de scrapeo en las tiendas virtuales de los comercios minoristas y descargue el dataset recien cargado a S3.
     * A medida que se va descargando la informacion se va enviando los datos al backend, usando la VPC interna de Railway, para que los productos sean limpiados, transformados y almacenados en la base de datos.
 
@@ -171,7 +171,7 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde h
     
     > Stack: AWS S3, AWS Lambda Functions, microservice architecture, workflow usando event-driven, procesos CI/CD, scrapping con BeautifulSoup y Selenium.
 
-2. [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Análisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
+2. [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Analisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
     * A partir del dataset [Twitter Emotion Classification Datase](https://www.kaggle.com/datasets/aadyasingh55/twitter-emotion-classification-dataset/data) se hizo un pre-procesamiento (limpieza, vectorizacion y transformacion) de data.
     * Luego utilizando la libreria de AutoML [Pycaret](https://pycaret.gitbook.io/docs) se busco el modelo, dentro de la familia de modelos de clasificacion, que mejor se ajuste a nuestros datos comparando los distintos modelos segun las metricas de precision y recall.
     * Guardamos el mejor modelo devuelto y para nuevos tweets, luego de hacer el mismo pre-procesamiento, se hace una prediccion utilizando el mejor modelo.
@@ -183,15 +183,13 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde h
 
 ## ¿Cuál te parece la mejor estrategia para versionar y guardar datos y modelos en Databricks?
 
-* Para el guardado y versionado **modelos en Databricks** la mejor opcion es usar [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry). Tiene como principales ventajas: Versionado de modelos, model lineage, trazabilidad de modelo y workflows listos para producción.
-
 * Para el guardado y versionado de **datos en Databricks** la mejor opcion es usar [Databricks Git folders](https://docs.databricks.com/aws/en/repos/). Integra nativamente el sistema de control de versiones de Git, se integra con los principales provedores de VCS (Github, Gitlab, etc) y se integra bien con pipelines de CI/CD.
+
+* Para el guardado y versionado **modelos en Databricks** la mejor opcion es usar [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry). Tiene como principales ventajas: Versionado de modelos, model lineage, trazabilidad de modelo y workflows listos para producción.
 
 ## ¿Qué estrategias usarías para optimizar costos en clústeres?
 
-Segun las [recomendaciones de Databricks](https://www.databricks.com/blog/best-practices-cost-management-databricks), podemos optimizar costos en clústeres a travez de las [politicas de cluster](https://docs.databricks.com/aws/en/admin/clusters/policies).
-
-Estas políticas permiten a los administradores establecer las configuraciones disponibles a la hora de crear un cluster nuevo, permitiendo controlar el maximo consumo total de Databricks Units (DBUs) que un cluster puede consumir.
+Segun las [recomendaciones de Databricks](https://www.databricks.com/blog/best-practices-cost-management-databricks), podemos optimizar costos en clústeres a travez de las [politicas de cluster](https://docs.databricks.com/aws/en/admin/clusters/policies). Estas políticas permiten a los administradores establecer las configuraciones disponibles a la hora de crear un cluster nuevo, permitiendo controlar el maximo consumo total de Databricks Units (DBUs) que un cluster puede consumir.
 
 Para optimizar costos en clústeres tenemos dos estrategias:
 
