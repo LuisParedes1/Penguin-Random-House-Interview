@@ -8,7 +8,7 @@ La implementacion de la API se realizo con el framework de [FastAPI](https://fas
 
 El proyecto se puede [ejecutar localmente](#ejecutar-localmente) o usando [Docker](#ejecutar-en-un-contenedor-de-docker).
 
-Tambien se encuentra disponible una [demo](#proceso-cicd) desplegada para probar el endpoint facilmente. 
+Tambien se encuentra disponible una [demo](https://penguin-random-house-interview-production.up.railway.app/docs) desplegada para probar el endpoint facilmente. 
 
 ## Ejecutar localmente
 
@@ -169,7 +169,7 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde u
 
     * Demo disponible [aca](https://front-five-plum.vercel.app/)
 
-> Stack: AWS S3, AWS Lambda Functions, microservice architecture, workflow usando event-driven, procesos CI/CD, scrapping con BeautifulSoup y Selenium.
+    > Stack: AWS S3, AWS Lambda Functions, microservice architecture, workflow usando event-driven, procesos CI/CD, scrapping con BeautifulSoup y Selenium.
 
 2. [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Análisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
     * A partir del dataset [Twitter Emotion Classification Datase](https://www.kaggle.com/datasets/aadyasingh55/twitter-emotion-classification-dataset/data) se hizo un pre-procesamiento (limpieza, vectorizacion y transformacion) de data.
@@ -179,7 +179,7 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde u
     * Demo disponible [aca](https://aprendizaje-automatico-3usl4r8w6-luisparedes1s-projects.vercel.app/)
     * El analisis exploratorio de los datos, limpieza, transformacion, vectorizacion y entrenamiento disponible en el siguiente [colab](https://colab.research.google.com/drive/1hlwWPb5bnSHSYBBX_uSYH23C23svkNZo?usp=sharing)
    
-> Stack: AutoML, NLP, Metricas, CI/CD, Machine Learning
+    > Stack: AutoML, NLP, Metricas, CI/CD, Machine Learning
 
 ## ¿Cuál te parece la mejor estrategia para versionar y guardar datos y modelos en Databricks?
 
