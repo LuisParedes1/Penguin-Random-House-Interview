@@ -242,9 +242,9 @@ GET y POST son metodos HTTP utilizados para operaciones CRUD (create, retrieve, 
 
 ## ¿Qué buenas prácticas seguirías para trabajar en equipo usando herramientas de versionado?
 
-1. Bloquear acceso para pushear a directo main. Unicamente agregar codigo a travez de Pull Requests
+1. Bloquear acceso para pushear a directo main. Unicamente agregar codigo a travez de Pull Requests.
 2. Realizar commits pequeños y descriptivos.
-3. Documentar infraestructura, instrucciones para correr y cualquier cosa relevante dentro de `README.md`
+3. Documentar infraestructura, decisiones de diseño, instrucciones para correr y cualquier cosa relevante dentro de `README.md`
 4. Agregar tests unitarios y de integracion al crear nuevas features y validar que los cambios no hayan roto tests anteriores.
 5. Crear una nueva branch para cada nueva implementacion y seguir estandares de branch naming
     * `feature/xxx` nueva feature
