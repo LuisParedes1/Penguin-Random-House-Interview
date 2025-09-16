@@ -1,8 +1,11 @@
 # Penguin Random House Grupo Editorial - Entrevista Tecnica
 
-## Running locally
+El siguiente repositorio contiene el desarrollo de la [consigna](./Consigna_ML_Engineer_RS.pdf) para la Entrevista Tecnica para Penguin Random House Grupo Editorial. 
 
-1. Install python [virtual environment](https://virtualenv.pypa.io/en/latest/installation.html), build and activate a new virtual environment.
+## Ejecutar localmente
+
+1. Instalar [entorno virtual](https://virtualenv.pypa.io/en/latest/installation.html) de python, buildear y activar un nuevo entorno virtual.
+
 
 ```
 # Build the virtual environment
@@ -12,71 +15,116 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-2. Install libraries and frameworks
+2. Instalar dependencias
 
 ```
 pip install -r requirements.txt
 ```
 
-3. Run the server locally using
+3. Ejecutar el servidor localmente
 
 ```
 uvicorn src.app:app --host 0.0.0.0 --port 8123 --reload
 ```
 
-4. Go to [`http://localhost:8123/docs`](http://localhost:8123/docs) to see the Swagger API
+4. Ir a [`http://localhost:8123/docs`](http://localhost:8123/docs) para usar Swagger API
 
 
-## Running inside Docker container
+## Ejecutar en un contenedor de Docker
 
-1. [Install Docker](https://docs.docker.com/engine/install/) in your local machine and make sure it's running.
+1. [Instalar Docker](https://docs.docker.com/engine/install/) localmente y asegurarse de que este corriendo.
 
-2. Build the Docker image
+2. Buildear la imagen de Docker
 
 ```
 docker build -t project_image -f Dockerfile .
 ```
 
-3. Run the image within a container
+3. Ejecutar la imagen dentro de un contenedor
 
 ```
 docker run -d -p 8123:8123 -v $(pwd):/code --name project_container project_image
 ```
 
-4. Go to [`http://localhost:8123/docs`](http://localhost:8123/docs) to see the Swagger API
+4. Ir a [`http://localhost:8123/docs`](http://localhost:8123/docs) para usar Swagger API
 
-# Testing the server
+# Probando el servidor
 
-Once the server is running, either locally or in a Docker container, we can perform a quick request to make sure it's working as expected.
+Una vez que este ejecutandose el servidor, bien sea de forma local o en un container Docker, podemos hacer un request rapido y sencillo para verificar que este funcionando correctamente.
 
-1. Open the command line interface
+1. Abrir la terminal
 
-2. Run the following command
+2. Ejecuta el siguiente comando
+
 ```
 curl "localhost:8123/data_analysis?mean=true&include_ar=true"
 ```
 
-3. You should get the following output
+3. Deberías obtener la siguiente salida
+
 ```
 {"AR":{"mean":656.5600000000001}}
 ```
 
-# Running Tests
+Tambien podemos probar el servidor usando la Swagger API:
 
-* To run all tests locally, run the following command
+1. Ir a [`http://localhost:8123/docs`](http://localhost:8123/docs)
+2. Desplegar el endpoint `/data_analysis`
+3. Parametrizar `mean=True` y `include_ar=True`
+4. Undir el boton `Execute`. Se deberia ver el siguiente response body
+
+```
+{
+  "AR": {
+    "mean": 656.5600000000001
+  }
+}
+```
+
+# Tests unitarios
+
+Dado que el alcance del problema es muy pequeño y solo tenemos un unico endpoint, se consideraron las pruebas unitarias y las pruebas de integracion como las mismas. Es decir, hacemos los tests directamente sobre la API.
+
+> En caso de que el proyecto crezca, es recomendable desacoplar estos tests.   
+
+* Se implementaron los siguientes caso de uso felices:
+
+    1. Cuando el usuario solicita una o varias metricas en argentina, entonces el sistema devuelve las metricas para argentina.
+
+    2. Cuando el usuario solicita una o varias metricas en argentina y filtrando para un año especifico, entonces el sistema devuelve las metricas para argentina en ese año.
+
+    3. Cuando el usuario solicita una o varias metricas en uno o varios paises, entonces el sistema devuelve la informacion correcta para cada pais.
+
+    4. Cuando el usuario solicita una o varias metricas en uno o varios paises e indica que es un resultado global, entonces el sistema devuelve metricas globales.
+
+* Se implementaron los siguientes casos de uso borde:
+
+    1. Cuando el usuario no envia ninguna metrica a calcular, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos una metrica** a calcular
+
+    2. Cuando el usuario no especifica ningun pais sobre el cual calcular las metricas, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos un pais** sobre el cual operar
+
+    3. Cuando los filtros devuelven un dataset vacio, entonces se espera que devuelva un error legible.
+
+## Correr los tests
+
+Para correr todos los tests localmente, ejecuta el siguiente comando:
 
 ```
 pytest test/
 ```
 
-* To run a single test, append the filename along with the test name
+Para correr un test especifico, ejecuta el siguiente comando
 
 ```
 pytest test/test_[filename]::test_[function_name]
 ```
 
+# Proceso CI/CD
 
+* Este proyecto tiene una pequeña integracion CI/CD usando [Github Actions](https://docs.github.com/en/actions) y [Railway](https://railway.com/). Se puede acceder a una demo del proyecto en el siguiente enlace: [https://penguin-random-house-interview-production.up.railway.app/docs](https://penguin-random-house-interview-production.up.railway.app/docs)
 
+* Como parte del proceso CI, se bloqueo el permiso para pushear directo a main, y los Pull Requests unicamente se pueden mergearse con main una vez que todos los tests pasen.
+* Cambios a main automaticamente se despliegan en la plataforma de Railway.
 
 # Preguntas conceptuales
 
@@ -130,7 +178,7 @@ GET y POST son metodos HTTP utilizados para operaciones CRUD (create, retrieve, 
 ## ¿Qué buenas prácticas seguirías para trabajar en equipo usando herramientas de versionado?
 
 1. Bloquear acceso para pushear a directo main. Unicamente agregar codigo a travez de Pull Requests
-2. Realizar commits pequenos y descriptivos.
+2. Realizar commits pequeños y descriptivos.
 3. Documentar infraestructura, instrucciones para correr y cualquier cosa relevante dentro de `README.md`
 4. Agregar tests unitarios y de integracion al crear nuevas features y validar que los cambios no hayan roto tests anteriores.
 5. Crear una nueva branch para cada nueva implementacion y seguir estandares de branch naming
