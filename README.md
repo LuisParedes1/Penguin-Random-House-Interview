@@ -1,8 +1,8 @@
 # Penguin Random House Grupo Editorial - Entrevista Tecnica
 
-El siguiente repositorio contiene el desarrollo de la [consigna](./Consigna_ML_Engineer_RS.pdf) para la Entrevista Tecnica para Penguin Random House Grupo Editorial. 
+El siguiente repositorio contiene el desarrollo de la [consigna](./Consigna_ML_Engineer_RS.pdf) para la entrevista tecnica para Penguin Random House Grupo Editorial. 
 
-La implementacion de la API se realizo con el framework de [FastAPI](https://fastapi.tiangolo.com/) y el procesamiento de datos se hizo con [Pandas](https://pandas.pydata.org/).
+La implementacion de la API se realizo con el framework de [FastAPI](https://fastapi.tiangolo.com/), el procesamiento de datos se hizo con [Pandas](https://pandas.pydata.org/) y los tests con el testing framework de [pytest](https://pytest.org/)
 
 # Ejecutar el proyecto
 
@@ -78,7 +78,7 @@ Tambien podemos probar el servidor usando el Swagger API:
 1. Ir a [`http://localhost:8123/docs`](http://localhost:8123/docs)
 2. Desplegar el endpoint `/data_analysis`
 3. Parametrizar `mean=True` y `include_ar=True`
-4. Undir el boton `Execute`. Se deberia ver el siguiente response body
+4. Undir el boton `Execute`. Deberías obtener el siguiente response body
 
 ```
 {
@@ -92,7 +92,7 @@ Tambien podemos probar el servidor usando el Swagger API:
 
 Dado que el alcance del problema es muy pequeño y solo tenemos un unico endpoint, se consideraron las pruebas unitarias y las pruebas de integracion como las mismas. Es decir, hacemos los tests directamente sobre la API.
 
-> En caso de que el proyecto crezca, es recomendable desacoplar estos tests.   
+> En caso de que el proyecto crezca, es recomendable desacoplar los tests unitarios de los tests de integracion.
 
 * Se implementaron los siguientes caso de uso felices:
 
@@ -110,7 +110,7 @@ Dado que el alcance del problema es muy pequeño y solo tenemos un unico endpoin
 
     2. Cuando el usuario no especifica ningun pais sobre el cual calcular las metricas, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos un pais** sobre el cual operar
 
-    3. Cuando los filtros devuelven un dataset vacio, entonces se espera que devuelva un error legible.
+    3. Cuando los filtros devuelven un dataset vacio, entonces se espera que devuelva un error legible indicando que los filtros no devolvieron datos.
 
 ## Correr los tests
 
