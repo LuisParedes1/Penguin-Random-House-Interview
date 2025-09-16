@@ -71,14 +71,25 @@ curl "localhost:8123/data_analysis?mean=true&include_ar=true"
 * Dado que el alcance del problema es muy pequeño y solo tenemos un unico endpoint, se consideraron las pruebas unitarias y las pruebas de integracion como las mismas. Es decir, hacemos los tests directamente sobre la API.
     * En caso de que el proyecto crezca, es recomendable desacoplar estos tests.   
 
-* Se implementaron los siguientes casos bordes:
+* Se implementaron los siguientes caso de uso felices
 
-1. El usuario no envia ningun parametro requerido
-2. El usuario no especifica ninguna metrica a calcular
-3. El usuario no especifica ningun pais sobre el cual calcular las metricas
-4. Los filtros devuelven un dataset vacio y se espera que devuelva un error legible
-5. 
+1. Cuando el usuario solicita una o varias metricas en argentina, entonces el sistema devuelve las metricas para argentina.
 
+2. Cuando el usuario solicita una o varias metricas en argentina y filtrando para un año especifico, entonces el sistema devuelve las metricas para argentina en ese año.
+
+3. Cuando el usuario solicita una o varias metricas en uno o varios paises, entonces el sistema devuelve la informacion correcta para cada pais.
+
+4. Cuando el usuario solicita una o varias metricas en uno o varios paises e indica que es un resultado global, entonces el sistema devuelve metricas globales.
+
+* Se implementaron los siguientes casos de uso borde:
+
+1. Cuando el usuario no envia ninguna metrica a calcular, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos una metrica** a calcular
+
+2. Cuando el usuario no especifica ningun pais sobre el cual calcular las metricas, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos un pais** sobre el cual operar
+
+3. Cuando los filtros devuelven un dataset vacio, entonces se espera que devuelva un error legible.
+
+## Correr los tests
 
 * Para correr todos los tests localmente, ejecuta el siguiente comando
 
@@ -94,7 +105,7 @@ pytest test/test_[filename]::test_[function_name]
 
 # Proceso CI/CD
 
-* Este proyecto tiene una pequena integracion CI/CD usando [Github Actions](https://docs.github.com/en/actions) y [Railway](https://railway.com/). Se puede acceder a una demo del proyecto en el siguiente enlace: [https://penguin-random-house-interview-production.up.railway.app/docs](https://penguin-random-house-interview-production.up.railway.app/docs)
+* Este proyecto tiene una pequeña integracion CI/CD usando [Github Actions](https://docs.github.com/en/actions) y [Railway](https://railway.com/). Se puede acceder a una demo del proyecto en el siguiente enlace: [https://penguin-random-house-interview-production.up.railway.app/docs](https://penguin-random-house-interview-production.up.railway.app/docs)
 
 * Como parte del proceso CI, se bloqueo el permiso para pushear directo a main, y los Pull Requests unicamente se pueden mergearse con main una vez que todos los tests pasen.
 * Cambios a main automaticamente se despliegan en la plataforma de Railway.
@@ -151,7 +162,7 @@ GET y POST son metodos HTTP utilizados para operaciones CRUD (create, retrieve, 
 ## ¿Qué buenas prácticas seguirías para trabajar en equipo usando herramientas de versionado?
 
 1. Bloquear acceso para pushear a directo main. Unicamente agregar codigo a travez de Pull Requests
-2. Realizar commits pequenos y descriptivos.
+2. Realizar commits pequeños y descriptivos.
 3. Documentar infraestructura, instrucciones para correr y cualquier cosa relevante dentro de `README.md`
 4. Agregar tests unitarios y de integracion al crear nuevas features y validar que los cambios no hayan roto tests anteriores.
 5. Crear una nueva branch para cada nueva implementacion y seguir estandares de branch naming
