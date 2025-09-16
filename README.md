@@ -1,8 +1,8 @@
 # Penguin Random House Grupo Editorial - Entrevista Tecnica
 
-El siguiente repositorio contiene el desarrollo de la [consigna](./Consigna_ML_Engineer_RS.pdf) para la Entrevista Tecnica para Penguin Random House Grupo Editorial. 
+El siguiente repositorio contiene el desarrollo de la [consigna](./Consigna_ML_Engineer_RS.pdf) para la entrevista tecnica para Penguin Random House Grupo Editorial. 
 
-La implementacion de la API se realizo con el framework de [FastAPI](https://fastapi.tiangolo.com/) y el procesamiento de datos se hizo con [Pandas](https://pandas.pydata.org/).
+La implementacion de la API se realizo con el framework de [FastAPI](https://fastapi.tiangolo.com/), el procesamiento de datos se hizo con [Pandas](https://pandas.pydata.org/) y los tests con el testing framework de [pytest](https://pytest.org/)
 
 # Ejecutar el proyecto
 
@@ -78,7 +78,7 @@ Tambien podemos probar el servidor usando el Swagger API:
 1. Ir a [`http://localhost:8123/docs`](http://localhost:8123/docs)
 2. Desplegar el endpoint `/data_analysis`
 3. Parametrizar `mean=True` y `include_ar=True`
-4. Undir el boton `Execute`. Se deberia ver el siguiente response body
+4. Undir el boton `Execute`. Deberías obtener el siguiente response body
 
 ```
 {
@@ -92,7 +92,7 @@ Tambien podemos probar el servidor usando el Swagger API:
 
 Dado que el alcance del problema es muy pequeño y solo tenemos un unico endpoint, se consideraron las pruebas unitarias y las pruebas de integracion como las mismas. Es decir, hacemos los tests directamente sobre la API.
 
-> En caso de que el proyecto crezca, es recomendable desacoplar estos tests.   
+> En caso de que el proyecto crezca, es recomendable desacoplar los tests unitarios de los tests de integracion.
 
 * Se implementaron los siguientes caso de uso felices:
 
@@ -110,7 +110,7 @@ Dado que el alcance del problema es muy pequeño y solo tenemos un unico endpoin
 
     2. Cuando el usuario no especifica ningun pais sobre el cual calcular las metricas, entonces el sistema devuelve un error legible indicando que debe indicar **por lo menos un pais** sobre el cual operar
 
-    3. Cuando los filtros devuelven un dataset vacio, entonces se espera que devuelva un error legible.
+    3. Cuando los filtros devuelven un dataset vacio, entonces se espera que devuelva un error legible indicando que los filtros no devolvieron datos.
 
 ## Correr los tests
 
@@ -139,30 +139,29 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
 
 ## Experiencia previa en nuestro stack tecnológico (Snowflake, Airflow, DBT, AWS, Databricks, CI/CD en gitlab) o similares. Breve resumen de algún proyecto en el que hayas aplicado estas herramientas.
 
+* **Tecnologia en la nube**: Cuento con mas de un año de experiencia laboral usando y desplegando servicios de AWS tales como AWS S3, AWS RDS, AWS API Gateway, AWS ECS, AWS Lambda Functions, entre otros, a travez de la consola y usando IaC (Terraform y AWS CloudFormation). Ademas cuento con el certificado [AWS Certified Developer – Associate](https://www.credly.com/badges/f16701bc-0361-4453-89eb-33d1e339332b/embedded) y actualmente me encuentro haciendo el curso de Google Cloud Platform a travez de [Talento Tech](https://drive.google.com/file/d/1qgxk5z2bgUZOsxDUBiCUeSJyEOmdukve/view) con el objetivo de certificarme pronto como Google [Associate Cloud Engineer](https://www.cloudskillsboost.google/public_profiles/2a36b716-c860-4391-b2d6-683ebc12dafe).
 
-* **Orquestación de workflows** -> No he trabajado directamente con Airflow, sin embargo cuento con experiencia practica orquestando workflows de manera serverless a travez de [AWS Step Functions] y programando tareas recurrentes mediante CRON jobs para infraestructura desplegada en Railway usando [Railway Cron Jobs](https://docs.railway.com/reference/cron-jobs)
-
-* **Tecnologia en la nube** -> Cuento con mas de un año de experiencia laboral usando y desplegando servicios de AWS tales como AWS S3, AWS RDS, AWS API Gateway, AWS ECS, AWS Lambda Functions, entre otros, a travez de la consola y usando IaC a travez de Terraform y AWS CloudFormation. Ademas cuento con el certificado [AWS Certified Developer – Associate](https://www.credly.com/badges/f16701bc-0361-4453-89eb-33d1e339332b/embedded) y actualmente me encuentro haciendo el curso de Google Cloud Platform a travez de [Talento Tech](https://drive.google.com/file/d/1qgxk5z2bgUZOsxDUBiCUeSJyEOmdukve/view) con el objetivo de certificarme pronto como Google [Associate Cloud Engineer](https://cloud.google.com/learn/certification/cloud-engineer/).
-
-* **Databricks** -> Si bien no he trabajado directamente con Databricks, cuento con experiencia con distintas herramientas que provee. Por ejemplo
+* **Databricks**: Aunque no he trabajado directamente con Databricks, si tengo experiencia utilizando varias de las herramientas que ofrece. Por ejemplo:
     * Cuento con mas de un año de experiencia laboral creando y optimizando SQL queries para obtener analiticas.
-    * En [trabajos practicos](https://github.com/LuisParedes1/TP2_orga/blob/master/TP2_2C2021.pdf) universitarios trabaje con un dump de Wikipedia en español utilizando distintas transformaciones y acciones de **Spark** para extraer insights. 
+    * Cuento con experiencia trabajando sobre dump de Wikipedia en español utilizando transformaciones y acciones de **Spark** para extraer insights. [Github repositorio](https://github.com/LuisParedes1/TP2_orga/blob/master/TP2_2C2021.pdf)
     * En la materia de Ciencia de datos donde soy colaborador, enseñamos:
         * Procesos de **Data engineering** tales como ingestion de datos, limpieza y transformacion de datos.
         * Entrenamiento y evaluacion de modelos de **Machine Learning** utilizando diversas metricas (precision, recall, F-score, etc)
         * **Visualizacion de datos** usando las librerias [seaborn](https://seaborn.pydata.org/) & [matplotlib](https://matplotlib.org/)
 
-* **Snowflake** -> Mas alla de los conceptos teoricos que aprendi en la universidad sobre data warehousing y data lakes, aun no he tenido la oportunidad de trabajar con Snowflake, ya que es un producto de pago. Sin embargo, estoy muy interesado en aprender y desarrollar habilidades prácticas en Big Data, aprovechando capacidades de Snowflake como almacenamiento escalable y seguro, procesamiento de consultas en paralelo, integración con múltiples fuentes de datos, entre otras.
+* **Snowflake & DBT**: Mas alla de los conceptos teoricos que adquiri en la universidad sobre data warehousing y data lakes, aun no he tenido la oportunidad de trabajar directamente con estas herramientas debido a los costos asociados. Sin embargo, estoy muy interesado en desarrollar experiencia practica en Big Data, explorando capacidades de Snowflake como almacenamiento seguro y escalable, procesamiento de consultas en paralelo e integración con múltiples fuentes de datos, asi como el uso de DBT para la transformacion eficiente de datos en entornos de data warehouse y lakehouse.
 
+* **Procesos CI/CD**: Cuento con experiencia realizando procesos CI/CD a travez de Github Actions y diversas plataformas de despliegue como Railway y AWS. Este mismo proyecto cuenta con un [proceso CI/CD](#proceso-cicd) sencillo a modo demostrativo.
 
-* **Procesos CI/CD** -> Cuento con experiencia realizando procesos CI/CD a travez de Github Actions y diversas plataformas de despliegue como Railway y AWS. Este mismo proyecto cuenta con un [proceso CI/CD](#proceso-cicd) sencillo a modo demostrativo.
+* **Orquestación de workflows (Airflow)**: No he trabajado directamente con Airflow, sin embargo cuento con experiencia practica orquestando workflows de manera serverless a travez de [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) y programando tareas recurrentes mediante CRON jobs para infraestructura desplegada en Railway usando [Railway Cron Jobs](https://docs.railway.com/reference/cron-jobs)
 
+### Portafolio
 
-En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde utilizo el stack recien mencionado. Entre los mas destados estan:
+En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde he utilizado diversas herramientas del stack recien mencionado. Entre los proyectos mas destacados se encuentran:
 
-1. [Ahorraton](https://github.com/Ahorraton/.github): Full-stack web application que compara los precios de supermercados argentinos y recomienda la tienda más rentable según la lista de compras del usuario.
+1. [Ahorraton](https://github.com/Ahorraton/.github): Full-stack web application que compara los precios de supermercados argentinos y recomienda la tienda mas rentable según la lista de compras del usuario.
 
-    * Con el objetivo de controlar y minimizar los costos, el workflow es activado manualmente al cargar los datos de [SEPA](https://datos.produccion.gob.ar/dataset/sepa-precios), el cual reúne los precios de comercios minoristas fisicos (grandes establecimientos) de más de 70 mil productos en todo el país, en AWS S3 bucket.
+    * Con el objetivo de controlar y minimizar los costos, el workflow es activado manualmente al cargar los datos de [SEPA](https://datos.produccion.gob.ar/dataset/sepa-precios), el cual reúne los precios de comercios minoristas fisicos (grandes establecimientos) de mas de 70 mil productos en todo el país, en AWS S3 bucket.
     * A partir de la carga de este dataset se activa un evento el cual ejecuta la Lambda Function que envia una señal al API gateway para que el scraper comience el proceso de scrapeo en las tiendas virtuales de los comercios minoristas y descargue el dataset recien cargado a S3.
     * A medida que se va descargando la informacion se va enviando los datos al backend, usando la VPC interna de Railway, para que los productos sean limpiados, transformados y almacenados en la base de datos.
 
@@ -172,7 +171,7 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde u
     
     > Stack: AWS S3, AWS Lambda Functions, microservice architecture, workflow usando event-driven, procesos CI/CD, scrapping con BeautifulSoup y Selenium.
 
-2. [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Análisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
+2. [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Analisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
     * A partir del dataset [Twitter Emotion Classification Datase](https://www.kaggle.com/datasets/aadyasingh55/twitter-emotion-classification-dataset/data) se hizo un pre-procesamiento (limpieza, vectorizacion y transformacion) de data.
     * Luego utilizando la libreria de AutoML [Pycaret](https://pycaret.gitbook.io/docs) se busco el modelo, dentro de la familia de modelos de clasificacion, que mejor se ajuste a nuestros datos comparando los distintos modelos segun las metricas de precision y recall.
     * Guardamos el mejor modelo devuelto y para nuevos tweets, luego de hacer el mismo pre-procesamiento, se hace una prediccion utilizando el mejor modelo.
@@ -184,21 +183,19 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde u
 
 ## ¿Cuál te parece la mejor estrategia para versionar y guardar datos y modelos en Databricks?
 
-* Para el guardado y versionado **modelos en Databricks** la mejor opcion es usar [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry). Tiene como principales ventajas: Versionado de modelos, model lineage, trazabilidad de modelo y workflows listos para producción.
-
 * Para el guardado y versionado de **datos en Databricks** la mejor opcion es usar [Databricks Git folders](https://docs.databricks.com/aws/en/repos/). Integra nativamente el sistema de control de versiones de Git, se integra con los principales provedores de VCS (Github, Gitlab, etc) y se integra bien con pipelines de CI/CD.
+
+* Para el guardado y versionado **modelos en Databricks** la mejor opcion es usar [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry). Tiene como principales ventajas: Versionado de modelos, model lineage, trazabilidad de modelo y workflows listos para producción.
 
 ## ¿Qué estrategias usarías para optimizar costos en clústeres?
 
-Segun las [recomendaciones de Databricks](https://www.databricks.com/blog/best-practices-cost-management-databricks), podemos optimizar costos en clústeres a travez de las [politicas de cluster](https://docs.databricks.com/aws/en/admin/clusters/policies).
+Segun las [recomendaciones de Databricks](https://www.databricks.com/blog/best-practices-cost-management-databricks), podemos optimizar costos en clústeres a travez de las [politicas de cluster](https://docs.databricks.com/aws/en/admin/clusters/policies). Estas políticas permiten a los administradores establecer las configuraciones disponibles a la hora de crear un cluster nuevo, permitiendo controlar el maximo consumo total de Databricks Units (DBUs) que un cluster puede consumir.
 
-Estas políticas permiten a los administradores establecer las configuraciones disponibles a la hora de crear un cluster nuevo, permitiendo controlar el maximo consumo total de Databricks Units (DBUs) que un cluster puede consumir.
+Usando las politicas de cluster, tenemos dos estrategias para optimizar costos en clústeres:
 
-Para optimizar costos en clústeres tenemos dos estrategias:
-
-1. Reducir el costo por unidad de Databricks Unit (DBU) consumidos por el cluster
+1. Reducir el costo por unidad de Databricks Unit (DBU) consumidos por el cluster.
     * Usar el ultimo Databrick Runtime disponible.
-    * Cambiar el tipo de instance VM utilizada. 
+    * Cambiar el tipo de instance VM utilizada.
         * Usar spot instance si el workflow lo permite.
         * Tener en cuenta que una VM muy debil puede aumentar el tiempo de procesamiento, lo cual termina agregando costo. Es importante seleccionar una instance VM apropiada.
 
@@ -232,8 +229,8 @@ Para estimar el costo total podemos utilizar la [calculadora de DBU](https://www
 
 ## ¿Para qué sirve un Dockerfile y qué produce cuando se construye?
 
-* Dockerfile sirve para escribir declarativamente instrucciones que Docker va a ejecutar para construir una Docker Image.
-* Los containers ejecutan instances de Docker images.
+* Dockerfile sirve para escribir declarativamente instrucciones que Docker va a ejecutar para construir una imagen de Docker.
+* Luego los containers ejecutan instancias de la imagen de Docker recien construida.
 
 ## ¿Qué diferencias hay entre un request GET y un POST trabajando con una API?
 
@@ -245,9 +242,9 @@ GET y POST son metodos HTTP utilizados para operaciones CRUD (create, retrieve, 
 
 ## ¿Qué buenas prácticas seguirías para trabajar en equipo usando herramientas de versionado?
 
-1. Bloquear acceso para pushear a directo main. Unicamente agregar codigo a travez de Pull Requests
+1. Bloquear acceso para pushear a directo main. Unicamente agregar codigo a travez de Pull Requests.
 2. Realizar commits pequeños y descriptivos.
-3. Documentar infraestructura, instrucciones para correr y cualquier cosa relevante dentro de `README.md`
+3. Documentar infraestructura, decisiones de diseño, instrucciones para correr y cualquier cosa relevante dentro de `README.md`
 4. Agregar tests unitarios y de integracion al crear nuevas features y validar que los cambios no hayan roto tests anteriores.
 5. Crear una nueva branch para cada nueva implementacion y seguir estandares de branch naming
     * `feature/xxx` nueva feature
