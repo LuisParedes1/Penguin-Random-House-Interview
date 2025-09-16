@@ -144,7 +144,6 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
 * **Databricks**: Aunque no he trabajado directamente con Databricks, si tengo experiencia utilizando varias de las herramientas que ofrece. Por ejemplo:
     * Cuento con mas de un año de experiencia laboral creando y optimizando SQL queries para obtener analiticas.
     * Cuento con experiencia trabajando sobre dump de Wikipedia en español utilizando transformaciones y acciones de **Spark** para extraer insights. [Github repositorio](https://github.com/LuisParedes1/TP2_orga/blob/master/TP2_2C2021.pdf)
-
     * En la materia de Ciencia de datos donde soy colaborador, enseñamos:
         * Procesos de **Data engineering** tales como ingestion de datos, limpieza y transformacion de datos.
         * Entrenamiento y evaluacion de modelos de **Machine Learning** utilizando diversas metricas (precision, recall, F-score, etc)
