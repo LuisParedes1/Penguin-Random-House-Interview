@@ -157,7 +157,7 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
 
 ### Portafolio
 
-En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde he utilizado diversas herramientas del stack recien mencionado. Entre los proyectos destados estan:
+En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde he utilizado diversas herramientas del stack recien mencionado. Entre los proyectos más destacados se encuentran:
 
 1. [Ahorraton](https://github.com/Ahorraton/.github): Full-stack web application que compara los precios de supermercados argentinos y recomienda la tienda más rentable según la lista de compras del usuario.
 
