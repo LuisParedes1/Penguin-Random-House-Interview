@@ -6,7 +6,7 @@ from src.app import app
 client = TestClient(app)
 
 
-def test_mean_value_in_argentina():
+def test_query_mean_value_in_argentina():
 
     query_params = {
         "mean" : True,
@@ -22,8 +22,25 @@ def test_mean_value_in_argentina():
     assert isinstance(response_data["AR"]["mean"], float)
 
 
+def test_query_mean_value_in_argentina_with_year_filter():
 
-def test_mean_median_and_max_value_in_argentina():
+    query_params = {
+        "mean" : True,
+        "include_ar": True,
+        "year": 2025
+    }
+
+    response = client.get(f"/data_analysis?{urlencode(query_params)}")
+
+    assert response.status_code == 200
+
+    response_data = response.json()
+
+    assert isinstance(response_data["AR"]["mean"], float)
+
+
+
+def test_query_mean_median_and_max_value_in_argentina():
 
     query_params = {
         "mean" : True,
@@ -43,7 +60,7 @@ def test_mean_median_and_max_value_in_argentina():
     assert isinstance(response_data["AR"]["median"], float)
 
 
-def test_query_mean_median_and_max_value_in_grouped_by_country():
+def test_query_mean_median_and_max_value_grouped_by_country():
 
     query_params = {
         "mean" : True,
@@ -66,7 +83,7 @@ def test_query_mean_median_and_max_value_in_grouped_by_country():
         assert isinstance(response_data[country_code]["median"], float)
 
 
-def test_query_mean_median_and_max_value_in_all_countries_globally():
+def test_query_mean_median_and_max_value_globally():
 
     query_params = {
         "mean" : True,
@@ -109,9 +126,9 @@ def test_query_without_country_codes_returns_400_status_code():
     assert response.json() == {"detail": "At least one country must be included"}
 
 
-def test_query_data_with_no_results_returns_404_status_code():
+def test_query_filtered_data_with_no_results_returns_404_status_code():
 
-    query_params = {"mean" : True, "include_ar": True, "year":-1}
+    query_params = {"mean" : True, "include_ar": True, "year": -1}
 
     response = client.get(f"/data_analysis?{urlencode(query_params)}")
 
