@@ -139,9 +139,9 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
 
 ## Experiencia previa en nuestro stack tecnológico (Snowflake, Airflow, DBT, AWS, Databricks, CI/CD en gitlab) o similares. Breve resumen de algún proyecto en el que hayas aplicado estas herramientas.
 
-* **Tecnologia en la nube** -> Cuento con mas de un año de experiencia laboral usando y desplegando servicios de AWS tales como AWS S3, AWS RDS, AWS API Gateway, AWS ECS, AWS Lambda Functions, entre otros, a travez de la consola y usando IaC a travez de Terraform y AWS CloudFormation. Ademas cuento con el certificado [AWS Certified Developer – Associate](https://www.credly.com/badges/f16701bc-0361-4453-89eb-33d1e339332b/embedded) y actualmente me encuentro haciendo el curso de Google Cloud Platform a travez de [Talento Tech](https://drive.google.com/file/d/1qgxk5z2bgUZOsxDUBiCUeSJyEOmdukve/view) con el objetivo de certificarme pronto como Google [Associate Cloud Engineer](https://cloud.google.com/learn/certification/cloud-engineer/).
+* **Tecnologia en la nube**: Cuento con mas de un año de experiencia laboral usando y desplegando servicios de AWS tales como AWS S3, AWS RDS, AWS API Gateway, AWS ECS, AWS Lambda Functions, entre otros, a travez de la consola y usando IaC a travez de Terraform y AWS CloudFormation. Ademas cuento con el certificado [AWS Certified Developer – Associate](https://www.credly.com/badges/f16701bc-0361-4453-89eb-33d1e339332b/embedded) y actualmente me encuentro haciendo el curso de Google Cloud Platform a travez de [Talento Tech](https://drive.google.com/file/d/1qgxk5z2bgUZOsxDUBiCUeSJyEOmdukve/view) con el objetivo de certificarme pronto como Google [Associate Cloud Engineer](https://cloud.google.com/learn/certification/cloud-engineer/).
 
-* **Databricks** -> Si bien no he trabajado directamente con Databricks, cuento con experiencia con distintas herramientas que provee. Por ejemplo
+* **Databricks**: Si bien no he trabajado directamente con Databricks, cuento con experiencia con distintas herramientas que provee. Por ejemplo
     * Cuento con mas de un año de experiencia laboral creando y optimizando SQL queries para obtener analiticas.
     * En [trabajos practicos](https://github.com/LuisParedes1/TP2_orga/blob/master/TP2_2C2021.pdf) universitarios trabaje con un dump de Wikipedia en español utilizando distintas transformaciones y acciones de **Spark** para extraer insights. 
     * En la materia de Ciencia de datos donde soy colaborador, enseñamos:
@@ -149,12 +149,12 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
         * Entrenamiento y evaluacion de modelos de **Machine Learning** utilizando diversas metricas (precision, recall, F-score, etc)
         * **Visualizacion de datos** usando las librerias [seaborn](https://seaborn.pydata.org/) & [matplotlib](https://matplotlib.org/)
 
-* **Snowflake** -> Mas alla de los conceptos teoricos que aprendi en la universidad sobre data warehousing y data lakes, aun no he tenido la oportunidad de trabajar con Snowflake, ya que es un producto de pago. Sin embargo, estoy muy interesado en aprender y desarrollar habilidades prácticas en Big Data, aprovechando capacidades de Snowflake como almacenamiento escalable y seguro, procesamiento de consultas en paralelo, integración con múltiples fuentes de datos, entre otras.
+* **Snowflake**: Mas alla de los conceptos teoricos que aprendi en la universidad sobre data warehousing y data lakes, aun no he tenido la oportunidad de trabajar con Snowflake, ya que es un producto de pago. Sin embargo, estoy muy interesado en aprender y desarrollar habilidades prácticas en Big Data, aprovechando capacidades de Snowflake como almacenamiento escalable y seguro, procesamiento de consultas en paralelo, integración con múltiples fuentes de datos, entre otras.
 
 
-* **Procesos CI/CD** -> Cuento con experiencia realizando procesos CI/CD a travez de Github Actions y diversas plataformas de despliegue como Railway y AWS. Este mismo proyecto cuenta con un [proceso CI/CD](#proceso-cicd) sencillo a modo demostrativo.
+* **Procesos CI/CD**: Cuento con experiencia realizando procesos CI/CD a travez de Github Actions y diversas plataformas de despliegue como Railway y AWS. Este mismo proyecto cuenta con un [proceso CI/CD](#proceso-cicd) sencillo a modo demostrativo.
 
-* **Orquestación de workflows (Airflow)** -> No he trabajado directamente con Airflow, sin embargo cuento con experiencia practica orquestando workflows de manera serverless a travez de [AWS Step Functions] y programando tareas recurrentes mediante CRON jobs para infraestructura desplegada en Railway usando [Railway Cron Jobs](https://docs.railway.com/reference/cron-jobs)
+* **Orquestación de workflows (Airflow)**: No he trabajado directamente con Airflow, sin embargo cuento con experiencia practica orquestando workflows de manera serverless a travez de [AWS Step Functions] y programando tareas recurrentes mediante CRON jobs para infraestructura desplegada en Railway usando [Railway Cron Jobs](https://docs.railway.com/reference/cron-jobs)
 
 
 En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde utilizo el stack recien mencionado. Entre los mas destados estan:
