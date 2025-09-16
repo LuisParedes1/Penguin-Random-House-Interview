@@ -153,7 +153,7 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
 
 * **Procesos CI/CD**: Cuento con experiencia realizando procesos CI/CD a travez de Github Actions y diversas plataformas de despliegue como Railway y AWS. Este mismo proyecto cuenta con un [proceso CI/CD](#proceso-cicd) sencillo a modo demostrativo.
 
-* **Orquestación de workflows (Airflow)**: No he trabajado directamente con Airflow, sin embargo cuento con experiencia practica orquestando workflows de manera serverless a travez de [AWS Step Functions] y programando tareas recurrentes mediante CRON jobs para infraestructura desplegada en Railway usando [Railway Cron Jobs](https://docs.railway.com/reference/cron-jobs)
+* **Orquestación de workflows (Airflow)**: No he trabajado directamente con Airflow, sin embargo cuento con experiencia practica orquestando workflows de manera serverless a travez de [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) y programando tareas recurrentes mediante CRON jobs para infraestructura desplegada en Railway usando [Railway Cron Jobs](https://docs.railway.com/reference/cron-jobs)
 
 
 En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde utilizo el stack recien mencionado. Entre los mas destados estan:
