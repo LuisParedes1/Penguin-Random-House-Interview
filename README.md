@@ -128,10 +128,12 @@ pytest test/test_[filename]::test_[function_name]
 
 # Proceso CI/CD
 
-* Este proyecto tiene una pequeña integracion CI/CD usando [Github Actions](https://docs.github.com/en/actions) y [Railway](https://railway.com/). 
-    * Se puede acceder a una demo del proyecto en el siguiente enlace: [https://penguin-random-house-interview-production.up.railway.app/docs](https://penguin-random-house-interview-production.up.railway.app/docs)
-    * Como parte del proceso CI, se bloqueo el permiso para pushear directo a main, y los Pull Requests unicamente se pueden mergearse con main una vez que todos los tests pasen.
-    * Cambios a main automaticamente se despliegan en la plataforma de Railway.
+Este proyecto tiene una pequeña integracion CI/CD usando [Github Actions](https://docs.github.com/en/actions) y [Railway](https://railway.com/).
+
+* Como parte del proceso CI, se bloqueo el permiso para pushear directo a main, y los Pull Requests unicamente se pueden mergearse con main una vez que todos los tests pasen.
+* Cambios a main automaticamente se despliegan en la plataforma de Railway.
+
+Se puede acceder a una demo del proyecto en el siguiente enlace: [https://penguin-random-house-interview-production.up.railway.app/docs](https://penguin-random-house-interview-production.up.railway.app/docs)
 
 # Preguntas conceptuales
 
@@ -157,7 +159,7 @@ pytest test/test_[filename]::test_[function_name]
 
 En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde utilizo el stack recien mencionado. Entre los mas destados estan:
 
-* [Ahorraton](https://github.com/Ahorraton/.github): Full-stack web application que compara los precios de supermercados argentinos y recomienda la tienda más rentable según la lista de compras del usuario.
+1. [Ahorraton](https://github.com/Ahorraton/.github): Full-stack web application que compara los precios de supermercados argentinos y recomienda la tienda más rentable según la lista de compras del usuario.
 
     * Con el objetivo de controlar y minimizar los costos, el workflow es activado manualmente al cargar los datos de [SEPA](https://datos.produccion.gob.ar/dataset/sepa-precios), el cual reúne los precios de comercios minoristas fisicos (grandes establecimientos) de más de 70 mil productos en todo el país, en AWS S3 bucket.
     * A partir de la carga de este dataset se activa un evento el cual ejecuta la Lambda Function que envia una señal al API gateway para que el scraper comience el proceso de scrapeo en las tiendas virtuales de los comercios minoristas y descargue el dataset recien cargado a S3.
@@ -169,7 +171,7 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde u
 
 > Stack: AWS S3, AWS Lambda Functions, microservice architecture, workflow usando event-driven, procesos CI/CD, scrapping con BeautifulSoup y Selenium.
 
-* [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Análisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
+2. [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Análisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
     * A partir del dataset [Twitter Emotion Classification Datase](https://www.kaggle.com/datasets/aadyasingh55/twitter-emotion-classification-dataset/data) se hizo un pre-procesamiento (limpieza, vectorizacion y transformacion) de data.
     * Luego utilizando la libreria de AutoML [Pycaret](https://pycaret.gitbook.io/docs) se busco el modelo, dentro de la familia de modelos de clasificacion, que mejor se ajuste a nuestros datos comparando los distintos modelos segun las metricas de precision y recall.
     * Guardamos el mejor modelo devuelto y para nuevos tweets, luego de hacer el mismo pre-procesamiento, se hace una prediccion utilizando el mejor modelo.
