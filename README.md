@@ -2,10 +2,17 @@
 
 El siguiente repositorio contiene el desarrollo de la [consigna](./Consigna_ML_Engineer_RS.pdf) para la Entrevista Tecnica para Penguin Random House Grupo Editorial. 
 
+La implementacion de la API se realizo con el framework de [FastAPI](https://fastapi.tiangolo.com/) y el procesamiento de datos se hizo con [Pandas](https://pandas.pydata.org/).
+
+# Ejecutar el proyecto
+
+El proyecto se puede [ejecutar localmente](#ejecutar-localmente) o usando [Docker](#ejecutar-en-un-contenedor-de-docker).
+
+Tambien se encuentra disponible una [demo](https://penguin-random-house-interview-production.up.railway.app/docs) desplegada para probar el endpoint facilmente. 
+
 ## Ejecutar localmente
 
 1. Instalar [entorno virtual](https://virtualenv.pypa.io/en/latest/installation.html) de python, buildear y activar un nuevo entorno virtual.
-
 
 ```
 # Build the virtual environment
@@ -60,13 +67,13 @@ Una vez que este ejecutandose el servidor, bien sea de forma local o en un conta
 curl "localhost:8123/data_analysis?mean=true&include_ar=true"
 ```
 
-3. Deberías obtener la siguiente salida
+3. Deberías obtener el siguiente output
 
 ```
 {"AR":{"mean":656.5600000000001}}
 ```
 
-Tambien podemos probar el servidor usando la Swagger API:
+Tambien podemos probar el servidor usando el Swagger API:
 
 1. Ir a [`http://localhost:8123/docs`](http://localhost:8123/docs)
 2. Desplegar el endpoint `/data_analysis`
@@ -121,27 +128,88 @@ pytest test/test_[filename]::test_[function_name]
 
 # Proceso CI/CD
 
-* Este proyecto tiene una pequeña integracion CI/CD usando [Github Actions](https://docs.github.com/en/actions) y [Railway](https://railway.com/). Se puede acceder a una demo del proyecto en el siguiente enlace: [https://penguin-random-house-interview-production.up.railway.app/docs](https://penguin-random-house-interview-production.up.railway.app/docs)
+Este proyecto tiene una pequeña integracion CI/CD usando [Github Actions](https://docs.github.com/en/actions) y [Railway](https://railway.com/).
 
 * Como parte del proceso CI, se bloqueo el permiso para pushear directo a main, y los Pull Requests unicamente se pueden mergearse con main una vez que todos los tests pasen.
 * Cambios a main automaticamente se despliegan en la plataforma de Railway.
+
+Se puede acceder a una demo del proyecto en el siguiente enlace: [https://penguin-random-house-interview-production.up.railway.app/docs](https://penguin-random-house-interview-production.up.railway.app/docs)
 
 # Preguntas conceptuales
 
 ## Experiencia previa en nuestro stack tecnológico (Snowflake, Airflow, DBT, AWS, Databricks, CI/CD en gitlab) o similares. Breve resumen de algún proyecto en el que hayas aplicado estas herramientas.
 
-[TODO]
+
+* **Orquestación de workflows** -> No he trabajado directamente con Airflow, sin embargo cuento con experiencia practica orquestando workflows de manera serverless a travez de [AWS Step Functions] y programando tareas recurrentes mediante CRON jobs para infraestructura desplegada en Railway usando [Railway Cron Jobs](https://docs.railway.com/reference/cron-jobs)
+
+* **Tecnologia en la nube** -> Cuento con mas de un año de experiencia laboral usando y desplegando servicios de AWS tales como AWS S3, AWS RDS, AWS API Gateway, AWS ECS, AWS Lambda Functions, entre otros, a travez de la consola y usando IaC a travez de Terraform y AWS CloudFormation. Ademas cuento con el certificado [AWS Certified Developer – Associate](https://www.credly.com/badges/f16701bc-0361-4453-89eb-33d1e339332b/embedded) y actualmente me encuentro haciendo el curso de Google Cloud Platform a travez de [Talento Tech](https://drive.google.com/file/d/1qgxk5z2bgUZOsxDUBiCUeSJyEOmdukve/view) con el objetivo de certificarme pronto como Google [Associate Cloud Engineer](https://cloud.google.com/learn/certification/cloud-engineer/).
+
+* **Databricks** -> Si bien no he trabajado directamente con Databricks, cuento con experiencia con distintas herramientas que provee. Por ejemplo
+    * Cuento con mas de un año de experiencia laboral creando y optimizando SQL queries para obtener analiticas.
+    * En [trabajos practicos](https://github.com/LuisParedes1/TP2_orga/blob/master/TP2_2C2021.pdf) universitarios trabaje con un dump de Wikipedia en español utilizando distintas transformaciones y acciones de **Spark** para extraer insights. 
+    * En la materia de Ciencia de datos donde soy colaborador, enseñamos:
+        * Procesos de **Data engineering** tales como ingestion de datos, limpieza y transformacion de datos.
+        * Entrenamiento y evaluacion de modelos de **Machine Learning** utilizando diversas metricas (precision, recall, F-score, etc)
+        * **Visualizacion de datos** usando las librerias [seaborn](https://seaborn.pydata.org/) & [matplotlib](https://matplotlib.org/)
+
+* **Snowflake** -> Mas alla de los conceptos teoricos que aprendi en la universidad sobre data warehousing y data lakes, aun no he tenido la oportunidad de trabajar con Snowflake, ya que es un producto de pago. Sin embargo, estoy muy interesado en aprender y desarrollar habilidades prácticas en Big Data, aprovechando capacidades de Snowflake como almacenamiento escalable y seguro, procesamiento de consultas en paralelo, integración con múltiples fuentes de datos, entre otras.
+
+
+* **Procesos CI/CD** -> Cuento con experiencia realizando procesos CI/CD a travez de Github Actions y diversas plataformas de despliegue como Railway y AWS. Este mismo proyecto cuenta con un [proceso CI/CD](#proceso-cicd) sencillo a modo demostrativo.
+
+
+En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde utilizo el stack recien mencionado. Entre los mas destados estan:
+
+1. [Ahorraton](https://github.com/Ahorraton/.github): Full-stack web application que compara los precios de supermercados argentinos y recomienda la tienda más rentable según la lista de compras del usuario.
+
+    * Con el objetivo de controlar y minimizar los costos, el workflow es activado manualmente al cargar los datos de [SEPA](https://datos.produccion.gob.ar/dataset/sepa-precios), el cual reúne los precios de comercios minoristas fisicos (grandes establecimientos) de más de 70 mil productos en todo el país, en AWS S3 bucket.
+    * A partir de la carga de este dataset se activa un evento el cual ejecuta la Lambda Function que envia una señal al API gateway para que el scraper comience el proceso de scrapeo en las tiendas virtuales de los comercios minoristas y descargue el dataset recien cargado a S3.
+    * A medida que se va descargando la informacion se va enviando los datos al backend, usando la VPC interna de Railway, para que los productos sean limpiados, transformados y almacenados en la base de datos.
+
+    ![arquitectura](https://github.com/Ahorraton/.github/raw/main/resources/architecture.png)
+
+    * Demo disponible [aca](https://front-five-plum.vercel.app/)
+    
+    > Stack: AWS S3, AWS Lambda Functions, microservice architecture, workflow usando event-driven, procesos CI/CD, scrapping con BeautifulSoup y Selenium.
+
+2. [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Análisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
+    * A partir del dataset [Twitter Emotion Classification Datase](https://www.kaggle.com/datasets/aadyasingh55/twitter-emotion-classification-dataset/data) se hizo un pre-procesamiento (limpieza, vectorizacion y transformacion) de data.
+    * Luego utilizando la libreria de AutoML [Pycaret](https://pycaret.gitbook.io/docs) se busco el modelo, dentro de la familia de modelos de clasificacion, que mejor se ajuste a nuestros datos comparando los distintos modelos segun las metricas de precision y recall.
+    * Guardamos el mejor modelo devuelto y para nuevos tweets, luego de hacer el mismo pre-procesamiento, se hace una prediccion utilizando el mejor modelo.
+    
+    * Demo disponible [aca](https://aprendizaje-automatico-3usl4r8w6-luisparedes1s-projects.vercel.app/)
+    * El analisis exploratorio de los datos, limpieza, transformacion, vectorizacion y entrenamiento disponible en el siguiente [colab](https://colab.research.google.com/drive/1hlwWPb5bnSHSYBBX_uSYH23C23svkNZo?usp=sharing)
+   
+    > Stack: AutoML, NLP, Metricas, CI/CD, Machine Learning
 
 ## ¿Cuál te parece la mejor estrategia para versionar y guardar datos y modelos en Databricks?
 
-[TODO]
+* Para el guardado y versionado **modelos en Databricks** la mejor opcion es usar [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry). Tiene como principales ventajas: Versionado de modelos, model lineage, trazabilidad de modelo y workflows listos para producción.
 
+* Para el guardado y versionado de **datos en Databricks** la mejor opcion es usar [Databricks Git folders](https://docs.databricks.com/aws/en/repos/). Integra nativamente el sistema de control de versiones de Git, se integra con los principales provedores de VCS (Github, Gitlab, etc) y se integra bien con pipelines de CI/CD.
 
 ## ¿Qué estrategias usarías para optimizar costos en clústeres?
 
-* Herramientas como Apache Spark se especializan en manejo de sistemas distribuidos. Para poder optimizar costos nos conviene distribuir la carga en multiples nodos dentro del cluster de manera que ninguno especifico este sobresaturado.
+Segun las [recomendaciones de Databricks](https://www.databricks.com/blog/best-practices-cost-management-databricks), podemos optimizar costos en clústeres a travez de las [politicas de cluster](https://docs.databricks.com/aws/en/admin/clusters/policies).
 
-[TODO]
+Estas políticas permiten a los administradores establecer las configuraciones disponibles a la hora de crear un cluster nuevo, permitiendo controlar el maximo consumo total de Databricks Units (DBUs) que un cluster puede consumir.
+
+Para optimizar costos en clústeres tenemos dos estrategias:
+
+1. Reducir el costo por unidad de Databricks Unit (DBU) consumidos por el cluster
+    * Usar el ultimo Databrick Runtime disponible.
+    * Cambiar el tipo de instance VM utilizada. 
+        * Usar spot instance si el workflow lo permite.
+        * Tener en cuenta que una VM muy debil puede aumentar el tiempo de procesamiento, lo cual termina agregando costo. Es importante seleccionar una instance VM apropiada.
+
+2. Reducir el numero de Databricks Units (DBUs) consumidos por el cluster
+    * Limitar la quota de DBUs consumidos por hora
+    * Cambiar el tipo de workload si es posible (`cluster_type`)
+    * Utilizar auto-scaling y auto-termination para activar y desactivar nodos elasticamente, y configurar un limite para el maximo y minimo numero de worker nodes.
+
+
+Para estimar el costo total podemos utilizar la [calculadora de DBU](https://www.databricks.com/product/pricing/product-pricing/instance-types) indicando la configuracion del cluster y el consumo de Databricks Units (DBUs)
+
 
 ## ¿Cómo implementarías seguridad (secret scopes, roles)?
 
@@ -155,7 +223,7 @@ pytest test/test_[filename]::test_[function_name]
 ## ¿Cómo harías troubleshooting si un job tarda 3 horas en vez de 30 min?
 
 * Verificaria si el error es interno (el codigo de la empresa esta fallando) o externo (los servidores de la nube estan fallando)
-    * Si el error es externo, si es posible, correria el job desde otro provider para verificar que no hayan errores
+    * Si el error es externo, si es posible, correria el job desde otro provider para verificar que no hayan errores internos.
     * Si el error es interno:
         * Iria al sistema de monitoreo y buscaria por algunos errores que este arrojando y empezaria a investigar estos errores.
         * Buscaria por deadlocks, loops infinitos o bloqueo por ausencia de líder (en caso de sistemas distribuidos).
