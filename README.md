@@ -191,11 +191,11 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde h
 
 Segun las [recomendaciones de Databricks](https://www.databricks.com/blog/best-practices-cost-management-databricks), podemos optimizar costos en clústeres a travez de las [politicas de cluster](https://docs.databricks.com/aws/en/admin/clusters/policies). Estas políticas permiten a los administradores establecer las configuraciones disponibles a la hora de crear un cluster nuevo, permitiendo controlar el maximo consumo total de Databricks Units (DBUs) que un cluster puede consumir.
 
-Para optimizar costos en clústeres tenemos dos estrategias:
+Usando las politicas de cluster, tenemos dos estrategias para optimizar costos en clústeres:
 
-1. Reducir el costo por unidad de Databricks Unit (DBU) consumidos por el cluster
+1. Reducir el costo por unidad de Databricks Unit (DBU) consumidos por el cluster.
     * Usar el ultimo Databrick Runtime disponible.
-    * Cambiar el tipo de instance VM utilizada. 
+    * Cambiar el tipo de instance VM utilizada.
         * Usar spot instance si el workflow lo permite.
         * Tener en cuenta que una VM muy debil puede aumentar el tiempo de procesamiento, lo cual termina agregando costo. Es importante seleccionar una instance VM apropiada.
 
