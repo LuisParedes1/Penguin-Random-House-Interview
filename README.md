@@ -155,6 +155,7 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
 
 * **Orquestación de workflows (Airflow)**: No he trabajado directamente con Airflow, sin embargo cuento con experiencia practica orquestando workflows de manera serverless a travez de [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) y programando tareas recurrentes mediante CRON jobs para infraestructura desplegada en Railway usando [Railway Cron Jobs](https://docs.railway.com/reference/cron-jobs)
 
+### Portafolio
 
 En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde utilizo el stack recien mencionado. Entre los mas destados estan:
 
