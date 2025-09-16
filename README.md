@@ -229,7 +229,7 @@ Para estimar el costo total podemos utilizar la [calculadora de DBU](https://www
 
 ## ¿Para qué sirve un Dockerfile y qué produce cuando se construye?
 
-* Dockerfile sirve para escribir declarativamente instrucciones que Docker va a ejecutar para construir una Docker Image.
+* Dockerfile sirve para escribir declarativamente instrucciones que Docker va a ejecutar para construir una imagen de Docker.
 * Luego los containers ejecutan instancias de la imagen de Docker recien construida.
 
 ## ¿Qué diferencias hay entre un request GET y un POST trabajando con una API?
