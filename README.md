@@ -149,8 +149,7 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
         * Entrenamiento y evaluacion de modelos de **Machine Learning** utilizando diversas metricas (precision, recall, F-score, etc)
         * **Visualizacion de datos** usando las librerias [seaborn](https://seaborn.pydata.org/) & [matplotlib](https://matplotlib.org/)
 
-* **Snowflake & DBT**: Mas alla de los conceptos teoricos que aprendi en la universidad sobre data warehousing y data lakes, aun no he tenido la oportunidad de trabajar con Snowflake, ya que es un producto de pago. Sin embargo, estoy muy interesado en aprender y desarrollar habilidades prácticas en Big Data, aprovechando capacidades de Snowflake como almacenamiento escalable y seguro, procesamiento de consultas en paralelo, integración con múltiples fuentes de datos, entre otras.
-
+* **Snowflake & DBT**: Mas alla de los conceptos teoricos que adquiri en la universidad sobre data warehousing y data lakes, aun no he tenido la oportunidad de trabajar directamente con estas herramientas debido a los costos asociados. Sin embargo, estoy muy interesado en desarrollar experiencia practica en Big Data, explorando capacidades de Snowflake como almacenamiento seguro y escalable, procesamiento de consultas en paralelo e integración con múltiples fuentes de datos, asi como el uso de DBT para la transformacion eficiente de datos en entornos de data warehouse y lakehouse.
 
 * **Procesos CI/CD**: Cuento con experiencia realizando procesos CI/CD a travez de Github Actions y diversas plataformas de despliegue como Railway y AWS. Este mismo proyecto cuenta con un [proceso CI/CD](#proceso-cicd) sencillo a modo demostrativo.
 
