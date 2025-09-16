@@ -144,12 +144,13 @@ Se puede acceder a una demo del proyecto en el siguiente enlace: [https://pengui
 
 * **Tecnologia en la nube** -> Cuento con mas de un año de experiencia laboral usando y desplegando servicios de AWS tales como AWS S3, AWS RDS, AWS API Gateway, AWS ECS, AWS Lambda Functions, entre otros, a travez de la consola y usando IaC a travez de Terraform y AWS CloudFormation. Ademas cuento con el certificado [AWS Certified Developer – Associate](https://www.credly.com/badges/f16701bc-0361-4453-89eb-33d1e339332b/embedded) y actualmente me encuentro haciendo el curso de Google Cloud Platform a travez de [Talento Tech](https://drive.google.com/file/d/1qgxk5z2bgUZOsxDUBiCUeSJyEOmdukve/view) con el objetivo de certificarme pronto como Google [Associate Cloud Engineer](https://cloud.google.com/learn/certification/cloud-engineer/).
 
-* **Databricks** -> Si bien no he trabajado directamente con Databricks, cuento con experiencia con las distintas herramientas que provee. Por ejemplo
+* **Databricks** -> Si bien no he trabajado directamente con Databricks, cuento con experiencia con distintas herramientas que provee. Por ejemplo
     * Cuento con mas de un año de experiencia laboral creando y optimizando SQL queries para obtener analiticas.
     * En [trabajos practicos](https://github.com/LuisParedes1/TP2_orga/blob/master/TP2_2C2021.pdf) universitarios trabaje con un dump de Wikipedia en español utilizando distintas transformaciones y acciones de **Spark** para extraer insights. 
     * En la materia de Ciencia de datos donde soy colaborador, enseñamos:
         * Procesos de **Data engineering** tales como ingestion de datos, limpieza y transformacion de datos.
         * Entrenamiento y evaluacion de modelos de **Machine Learning** utilizando diversas metricas (precision, recall, F-score, etc)
+        * **Visualizacion de datos** usando las librerias [seaborn](https://seaborn.pydata.org/) & [matplotlib](https://matplotlib.org/)
 
 * **Snowflake** -> Mas alla de los conceptos teoricos que aprendi en la universidad sobre data warehousing y data lakes, aun no he tenido la oportunidad de trabajar con Snowflake, ya que es un producto de pago. Sin embargo, estoy muy interesado en aprender y desarrollar habilidades prácticas en Big Data, aprovechando capacidades de Snowflake como almacenamiento escalable y seguro, procesamiento de consultas en paralelo, integración con múltiples fuentes de datos, entre otras.
 
@@ -168,7 +169,7 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde u
     ![arquitectura](https://github.com/Ahorraton/.github/raw/main/resources/architecture.png)
 
     * Demo disponible [aca](https://front-five-plum.vercel.app/)
-
+    
     > Stack: AWS S3, AWS Lambda Functions, microservice architecture, workflow usando event-driven, procesos CI/CD, scrapping con BeautifulSoup y Selenium.
 
 2. [Tweet Emontion Classifier](https://github.com/LuisParedes1/aprendizaje-automatico): Análisis de sentimientos en Tweets utilizando modelos de NLP entrenados y deployados utilizando AutoML.
@@ -183,14 +184,19 @@ En mi [portafolio](https://luisparedes1.github.io/) cuento con proyectos donde u
 
 ## ¿Cuál te parece la mejor estrategia para versionar y guardar datos y modelos en Databricks?
 
-[TODO]
+* Para el guardado y versionado **modelos en Databricks** la mejor opcion es usar [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry). Tiene como principales ventajas: Versionado de modelos, model lineage, trazabilidad de modelo y workflows listos para producción.
 
+* Para el guardado y versionado de **datos en Databricks** la mejor opcion es usar [Databricks Git folders](https://docs.databricks.com/aws/en/repos/). Integra nativamente el sistema de control de versiones de Git, se integra con los principales provedores de VCS (Github, Gitlab, etc) y se integra bien con pipelines de CI/CD.
 
 ## ¿Qué estrategias usarías para optimizar costos en clústeres?
 
+Segun las [recomendaciones de Databricks](https://www.databricks.com/blog/best-practices-cost-management-databricks) para optimizar costos en clústeres:
+
+1. 
+
 * Herramientas como Apache Spark se especializan en manejo de sistemas distribuidos. Para poder optimizar costos nos conviene distribuir la carga en multiples nodos dentro del cluster de manera que ninguno especifico este sobresaturado.
 
-[TODO]
+
 
 ## ¿Cómo implementarías seguridad (secret scopes, roles)?
 
